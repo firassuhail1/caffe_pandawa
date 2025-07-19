@@ -1,0 +1,32 @@
+name: caffe_pandawa
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  another_flushbar: ^1.12.30
+  cached_network_image: ^3.4.1
+  # fl_chart: ^0.69.0
+  flutter:
+    sdk: flutter
+  flutter_multi_formatter: ^2.13.7
+  flutter_secure_storage: ^9.2.4
+  flutter_typeahead: ^5.2.0
+  google_fonts: ^6.2.1
+  http: ^1.4.0
+  image_picker: ^1.1.2
+  intl: ^0.20.2
+  material_design_icons_flutter: ^7.0.7296
+  pull_to_refresh: ^2.0.0
+  shimmer: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
