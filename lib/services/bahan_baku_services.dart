@@ -109,8 +109,14 @@ class BahanBakuServices {
     }
   }
 
-  Future<bool> editBahanBaku(int id, String? kodeProduk, String nama,
-      String satuanUkur, double hargaPembelian, int minStockAlert) async {
+  Future<bool> editBahanBaku(
+      int id,
+      String? kodeProduk,
+      String nama,
+      String satuanUkur,
+      double hargaPembelian,
+      int minStockAlert,
+      double stock) async {
     final headers = await Services().getAuthHeaders();
 
     try {
@@ -122,6 +128,7 @@ class BahanBakuServices {
           'unit_of_measure': satuanUkur,
           'cost_price': hargaPembelian,
           'min_stock_alert': minStockAlert,
+          'stock': stock,
         }),
         headers: headers,
       );

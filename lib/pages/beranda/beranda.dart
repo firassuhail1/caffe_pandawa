@@ -7,6 +7,7 @@ import 'package:caffe_pandawa/pages/laporan/laporan_penjualan/laporan_data_penju
 import 'package:caffe_pandawa/pages/manajemen_bahan_baku/manajemen_bahan_baku.dart';
 import 'package:caffe_pandawa/pages/manajemen_resep/manajemen_resep.dart';
 import 'package:caffe_pandawa/pages/pembelian/pembelian.dart';
+import 'package:caffe_pandawa/pages/pengaturan_meja/pengaturan_meja.dart';
 import 'package:caffe_pandawa/services/laporan_penjualan_services.dart';
 import 'package:caffe_pandawa/services/services.dart';
 import 'package:caffe_pandawa/services/transaksi_services.dart';
@@ -38,6 +39,7 @@ class _BerandaState extends State<Beranda> {
 
   double totalPenjualan = 0;
   int totalTransaksi = 0;
+  int totalProduct = 0;
 
   @override
   void initState() {
@@ -81,6 +83,7 @@ class _BerandaState extends State<Beranda> {
       setState(() {
         totalPenjualan = result['total_penjualan'];
         totalTransaksi = result['total_transaksi'];
+        totalProduct = result['total_product'];
         print(totalPenjualan);
       });
     }
@@ -154,8 +157,8 @@ class _BerandaState extends State<Beranda> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildSaldoCard(),
-          const SizedBox(height: 16),
+          // _buildSaldoCard(),
+          // const SizedBox(height: 16),
           _buildGridMenu(),
           const SizedBox(height: 16),
           _buildPenjualanCard(),
@@ -370,6 +373,30 @@ class _BerandaState extends State<Beranda> {
           );
         }
       },
+      {
+        'icon': Icons.table_bar,
+        'label': 'Pengaturan Meja',
+        'color': Colors.brown,
+        'onTap': () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => TableSettingsScreen(),
+            ),
+          );
+        }
+      },
+      // {
+      //   'icon': Icons.receipt,
+      //   'label': 'Pesanan',
+      //   'color': Colors.brown,
+      //   'onTap': () {
+      //     Navigator.of(context).push(
+      //       MaterialPageRoute(
+      //         builder: (_) => OrderScreen(),
+      //       ),
+      //     );
+      //   }
+      // },
     ];
 
     return GridView.builder(
@@ -513,7 +540,7 @@ class _BerandaState extends State<Beranda> {
                     Expanded(
                       child: Container(
                         margin: EdgeInsets.only(left: 10),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -527,7 +554,7 @@ class _BerandaState extends State<Beranda> {
                             Row(
                               children: [
                                 Text(
-                                  '0',
+                                  totalProduct.toString(),
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),

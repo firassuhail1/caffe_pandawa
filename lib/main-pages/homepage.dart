@@ -1,8 +1,9 @@
 import 'dart:io';
+import 'package:caffe_pandawa/pages/orders/order.dart';
 import 'package:flutter/material.dart';
 import 'package:caffe_pandawa/pages/akun/akun.dart';
 import 'package:caffe_pandawa/pages/beranda/beranda.dart';
-import 'package:caffe_pandawa/pages/kasir/kasir.dart';
+// import 'package:caffe_pandawa/pages/kasir/kasir.dart';
 import 'package:caffe_pandawa/pages/laporan/laporan.dart';
 import 'package:caffe_pandawa/pages/produk/produk.dart';
 
@@ -17,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _pages = [
     Beranda(),
     Laporan(),
-    Container(),
+    // Container(),
+    OrderScreen(),
     Produk(),
     Akun(),
   ];
@@ -26,15 +28,15 @@ class _HomePageState extends State<HomePage> {
 
   // Mengubah halaman yang aktif di bottom navigation bar
   void _onBottomTabTapped(int index) {
-    if (index == 2) {
-      // Index 2 adalah Kasir
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => Kasir(),
-        ),
-      );
-      return; // Jangan ubah _selectedTabBottom agar tidak berpindah tab
-    }
+    // if (index == 2) {
+    //   // Index 2 adalah Kasir
+    //   Navigator.of(context).push(
+    //     MaterialPageRoute(
+    //       builder: (context) => Kasir(),
+    //     ),
+    //   );
+    //   return; // Jangan ubah _selectedTabBottom agar tidak berpindah tab
+    // }
 
     setState(() {
       _selectedTabBottom = index;
@@ -72,8 +74,10 @@ class _HomePageState extends State<HomePage> {
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
         BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Laporan'),
+        // BottomNavigationBarItem(
+        //     icon: Icon(Icons.calculate, color: Colors.black), label: 'Kasir'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.calculate, color: Colors.black), label: 'Kasir'),
+            icon: Icon(Icons.receipt, color: Colors.black), label: 'Pesanan'),
         BottomNavigationBarItem(
             icon: Icon(Icons.breakfast_dining), label: 'Produk'),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Akun'),

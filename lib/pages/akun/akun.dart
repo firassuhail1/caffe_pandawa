@@ -61,24 +61,24 @@ class Akun extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.brown.shade100,
-                child: const CircleAvatar(
-                  radius: 38,
-                  // backgroundImage: AssetImage('assets/images/store_logo.png'),
-                  // Gunakan NetworkImage jika gambar dari internet
-                  backgroundImage: NetworkImage(
-                      'http://127.0.0.1:8000/storage/photos/indomie_goreng.png'),
-                ),
-              ),
-              const SizedBox(width: 16),
+              // CircleAvatar(
+              //   radius: 40,
+              //   backgroundColor: Colors.brown.shade100,
+              //   child: const CircleAvatar(
+              //     radius: 38,
+              //     // backgroundImage: AssetImage('assets/images/store_logo.png'),
+              //     // Gunakan NetworkImage jika gambar dari internet
+              //     backgroundImage: NetworkImage(
+              //         'http://127.0.0.1:8000/storage/photos/indomie_goreng.png'),
+              //   ),
+              // ),
+              // const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Toko Makmur Jaya',
+                      'Caffe Pandawa',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -94,21 +94,13 @@ class Akun extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          'Toko Terverifikasi',
+                          'Caffe Terverifikasi',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.brown.shade700,
                           ),
                         ),
                       ],
-                    ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      'ID: TM38291',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                      ),
                     ),
                   ],
                 ),

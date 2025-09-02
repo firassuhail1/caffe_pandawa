@@ -27,8 +27,8 @@ Widget buildTextField({
       ),
       suffixIcon: suffixIcon,
     ),
-    validator:
-        validator ?? (val) => val!.isEmpty ? '$label tidak boleh kosong' : null,
+    // validator:
+    //     validator ?? (val) => val!.isEmpty ? '$label tidak boleh kosong' : null,
   );
 }
 

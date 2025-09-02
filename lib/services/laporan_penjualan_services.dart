@@ -59,6 +59,7 @@ class LaporanPenjualanServices {
         final responseData = json.decode(response.body);
         final total_penjualan = responseData['data']['total_sales'];
         final total_transaksi = responseData['data']['total_transaksi'];
+        final total_product = responseData['data']['total_product'];
         final message = responseData['message'];
 
         return {
@@ -66,6 +67,7 @@ class LaporanPenjualanServices {
           'message': message,
           'total_penjualan': double.tryParse(total_penjualan.toString()),
           'total_transaksi': total_transaksi,
+          'total_product': total_product,
         };
       }
 

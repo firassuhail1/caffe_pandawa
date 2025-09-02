@@ -59,11 +59,6 @@ class _LaporanDataPenjualanState extends State<LaporanDataPenjualan> {
     }
   }
 
-  // Function untuk format currency
-  String formatCurrency(int amount) {
-    return 'Rp ${amount.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}';
-  }
-
   // Function untuk memilih tanggal
   Future<void> _selectDate(BuildContext context, bool isStartDate) async {
     final DateTime? picked = await showDatePicker(
@@ -454,11 +449,12 @@ class _LaporanDataPenjualanState extends State<LaporanDataPenjualan> {
                             DataCell(Text(tanggal)),
                             // DataCell(Text(
                             //     outletMap[outlet] ?? 'Outlet tidak ditemukan')),
-                            DataCell(Text(barang['nama_product'] ?? '')),
-                            DataCell(Text('${barang['quantity']}')),
-                            DataCell(Text(formatCurrency(barang['harga']))),
+                            DataCell(Text(barang['product_name'] ?? '')),
+                            DataCell(Text('${barang['qty']}')),
                             DataCell(Text(
-                              formatCurrency(barang['totalHarga']),
+                                formatter(double.parse(barang['unit_price'])))),
+                            DataCell(Text(
+                              formatter(double.parse(barang['total_price'])),
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.green,

@@ -1,3 +1,4 @@
+import 'package:caffe_pandawa/helpers/formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:caffe_pandawa/helpers/flushbar_message.dart';
 import 'package:caffe_pandawa/models/BahanBaku.dart';
@@ -59,7 +60,7 @@ class _BahanBakuFormState extends State<BahanBakuForm> {
       if (widget.bahanBaku != null) {
         _kodeProduk.text = widget.bahanBaku?.kodeBahanBaku ?? "";
         _namaProduk.text = widget.bahanBaku?.namaBahanBaku ?? "";
-        // _stock.text = widget.bahanBaku?.bahanBakuInventories. ?? "";
+        _stock.text = formatter(widget.bahanBaku?.bahanBakuInventory[0].stock);
         _hargaPembelian.text =
             widget.bahanBaku?.standartCostPrice.toStringAsFixed(0) ?? "";
       }
@@ -107,6 +108,7 @@ class _BahanBakuFormState extends State<BahanBakuForm> {
             selectedSatuanUkur,
             double.parse(_hargaPembelian.text),
             int.parse(_minStokAlert.text),
+            double.parse(_stock.text.replaceAll('.', '')),
           );
 
           Navigator.pop(context); // Tutup loading

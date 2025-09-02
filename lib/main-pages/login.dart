@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:caffe_pandawa/main-pages/landingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -357,6 +358,24 @@ class _LoginState extends State<Login> {
           style: TextStyle(
             fontSize: 12,
             color: textColor.withOpacity(0.5),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (_) => Landingpage(),
+              ),
+            );
+          },
+          child: Text(
+            'Landingpage',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: textColor.withOpacity(0.5),
+            ),
           ),
         ),
       ],

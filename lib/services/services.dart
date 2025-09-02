@@ -9,7 +9,7 @@ class Services {
   final FlutterSecureStorage storage = FlutterSecureStorage();
   final AuthServices authServices = AuthServices();
 
-  final String baseUrl = "http://192.168.137.233:8000/api";
+  final String baseUrl = "https://944165fd4976.ngrok-free.app/api";
 
   Future<Map<String, String>> getAuthHeaders() async {
     String? authToken = await storage.read(key: '_token');
@@ -37,6 +37,7 @@ class Services {
     );
 
     final Map<String, dynamic> responseData = jsonDecode(response.body);
+    print(responseData);
     if (response.statusCode == 200) {
       final data = responseData['data'];
 

@@ -1,12 +1,18 @@
 import 'package:caffe_pandawa/main-pages/auth_wrapper.dart';
+import 'package:caffe_pandawa/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:provider/provider.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   initializeDateFormatting('id_ID', null).then((_) {
-    runApp(const MainApp());
+    runApp(MultiProvider(providers: [
+      ChangeNotifierProvider(
+        create: (_) => CartProvider(),
+      ),
+    ], child: const MainApp()));
   });
 }
 

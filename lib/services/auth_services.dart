@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:caffe_pandawa/models/User.dart';
+import 'package:caffe_pandawa/services/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,8 +23,6 @@ class AuthServices {
     return headers;
   }
 
-  final String baseUrl = "http://192.168.137.233:8000/api";
-
   Future<Map<String, dynamic>> register(
     String storeName,
     String ownerName,
@@ -33,7 +32,7 @@ class AuthServices {
     String email,
     String password,
   ) async {
-    final url = Uri.parse("$baseUrl/tenant");
+    final url = Uri.parse("${Services().baseUrl}/tenant");
 
     final response = await http.post(
       url,
@@ -70,7 +69,7 @@ class AuthServices {
   }
 
   Future<Map<String, dynamic>> login(String email, String password) async {
-    final url = Uri.parse("$baseUrl/login");
+    final url = Uri.parse("${Services().baseUrl}/login");
 
     final response = await http.post(
       url,
@@ -120,7 +119,7 @@ class AuthServices {
   Future<bool> logout() async {
     final headers = await _getAuthHeaders();
 
-    final url = Uri.parse('$baseUrl/logout');
+    final url = Uri.parse('${Services().baseUrl}/logout');
 
     try {
       final response = await http.post(url, headers: headers);

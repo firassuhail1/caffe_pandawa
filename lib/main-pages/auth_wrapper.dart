@@ -1,3 +1,4 @@
+import 'package:caffe_pandawa/main-pages/landingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:caffe_pandawa/main-pages/homepage.dart';
@@ -37,7 +38,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
     if (token != null && token != "") {
       return HomePage(); // Sudah login
     } else {
-      return Login(); // Belum login
+      return Landingpage(); // Belum login
     }
   }
 }
